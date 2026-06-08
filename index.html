@@ -2,30 +2,6 @@
 <html lang="en">
 <head>
 <meta name="google-site-verification" content="dElqnSJOX5KxV8r0vTdXpUfIEhihcBOy2eic1_lTeEc" />
-<!-- BEGIN AADS AD UNIT 2442192 -->
-
-<div id="frame" style="width: 100%;margin: auto;position: relative; z-index: 99998;">
-          <iframe data-aa='2442192' src='//acceptable.a-ads.com/2442192/?size=Adaptive'
-                            style='border:0; padding:0; width:70%; height:auto; overflow:hidden;display: block;margin: auto'></iframe>
-        </div>
-
-<!-- END AADS AD UNIT 2442192 -->
-<!-- BEGIN AADS AD UNIT 2442225 -->
-
-<div id="frame" style="width: 120px;margin: auto;z-index: 99998;height: auto">
-          <iframe data-aa='2442225' src='//ad.a-ads.com/2442225/?size=120x60'
-                            style='border:0; padding:0; width:120px; height:60px; overflow:hidden;display: block;margin: auto'></iframe>
-        </div>
-
-<!-- END AADS AD UNIT 2442225 -->
-          <!-- BEGIN AADS AD UNIT 2442227 -->
-
-<div id="frame" style="width: 100%;margin: auto;position: relative; z-index: 99998;">
-          <iframe data-aa='2442227' src='//acceptable.a-ads.com/2442227/?size=Adaptive'
-                            style='border:0; padding:0; width:70%; height:auto; overflow:hidden;display: block;margin: auto'></iframe>
-        </div>
-
-<!-- END AADS AD UNIT 2442227 -->
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="p:domain_verify" content="c013c454f523867ebbc9af2142a5d719"/>
@@ -33,17 +9,57 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+/* ========================================================
+   NEW SIDEBAR & CONTENT LAYOUT (ADS SIDE PAR KARNE KE LIYE)
+   ======================================================== */
+
+/* Main wrapper layout ko do hisson mein taqseem karne ke liye */
+.main-web-layout {
+  display: flex;
+  gap: 30px;
+  max-width: 1460px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* Left side jahan products aur content show hoga */
+.left-content-area {
+  flex: 1; /* Yeh bachi hui poori jagah le lega */
+  min-width: 0;
+}
+
+/* Right side jahan ads ka column banega */
+.right-ad-sidebar {
+  width: 300px; /* Sidebar ki width fixed 300px standard size */
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 40px;
+}
+
+/* Sidebar ke andar iframes ki standard control */
+.right-ad-sidebar iframe {
+  width: 100% !important;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Jab mobile screen ho to side-by-side khatam karke oopar-neeche kar dein */
+@media(max-width: 1024px) {
+  .main-web-layout {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+  .right-ad-sidebar {
+    width: 100%;
+    align-items: center;
+  }
+}          
 <style>
 :root{--bg:#ffffff;        /* white background */--bg2:#fff5f7;       /* light pink tone background */--surface:#ffffff;--border:rgba(0,0,0,0.08);--text:#000000;      /* black text */--muted:rgba(0,0,0,0.55);/* Light pink motion / highlights */--gold:#f472b6;--gold2:#f9a8d4;--rose:#f472b6;--cyan:#fbcfe8;--green:#fda4af;--card-bg:#ffffff;}
 *{margin:0;padding:0;box-sizing:border-box;}
-<!-- BEGIN AADS AD UNIT 2442221 -->
-
-<div id="frame" style="width: 120px;margin: auto;z-index: 99998;height: auto">
-          <iframe data-aa='2442221' src='//ad.a-ads.com/2442221/?size=120x60'
-                            style='border:0; padding:0; width:120px; height:60px; overflow:hidden;display: block;margin: auto'></iframe>
-        </div>
-
-<!-- END AADS AD UNIT 2442221 -->
   html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;}
 .cur{width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;will-change:left,top;transition:width .3s,height .3s,background .3s;}
@@ -333,7 +349,64 @@ padding:40px 20px;
   </div>
 </div>
 
-<div class="sec" id="products">
+<!-- YAHA SE LAYOUT STARTS -->
+<div class="main-web-layout">
+
+  <!-- Left Side: Saara Content Is Ke Andar Hoga -->
+  <div class="left-content-area">
+
+    <div class="sec" id="products">
+      <div class="sec-top reveal">
+        <span class="sec-tag">✦ Shop</span>
+        <h2 class="sec-title">TOP WOMEN BAGS</h2>
+      </div>
+      <div class="filters reveal">
+        <button class="fb active" onclick="filterP('all',this)">All</button>
+        <button class="fb" onclick="filterP('womanbags',this)">Woman Bags</button>
+      </div>
+      <div class="grid reveal" id="grid"></div>
+    </div>
+
+    <div class="deal-sec" id="deals">
+      <div class="deal-banner reveal">
+        <div>
+          <div class="deal-kicker">✦ Exclusive Offer</div>
+          <div class="deal-title">Exclusive Discount<br>For Prime Members</div>
+          <div class="deal-sub">Click on any buy button to get amazon prime to get exlusive discount.</div>
+        </div>
+        <div class="deal-icon">🎁</div>
+      </div>
+    </div>
+
+  </div> <!-- Left Content Area Ends -->
+
+
+  <!-- Right Side: Saare Ads Ka Sidebar Yahan Banega -->
+  <aside class="right-ad-sidebar">
+    
+    <!-- Aapka Ad Unit 2442192 -->
+    <div style="width: 100%; text-align: center;">
+      <iframe data-aa='2442192' src='//acceptable.a-ads.com/2442192/?size=Adaptive' style='border:0; padding:0; width:100%; height:250px; overflow:hidden; display: block; margin: auto;'></iframe>
+    </div>
+
+    <!-- Aapka Ad Unit 2442225 -->
+    <div style="width: 100%; text-align: center;">
+      <iframe data-aa='2442225' src='//ad.a-ads.com/2442225/?size=120x60' style='border:0; padding:0; width:120px; height:60px; overflow:hidden; display: block; margin: auto;'></iframe>
+    </div>
+
+    <!-- Aapka Ad Unit 2442227 -->
+    <div style="width: 100%; text-align: center;">
+      <iframe data-aa='2442227' src='//acceptable.a-ads.com/2442227/?size=Adaptive' style='border:0; padding:0; width:100%; height:250px; overflow:hidden; display: block; margin: auto;'></iframe>
+    </div>
+
+    <!-- Aapka Ad Unit 2442204 -->
+    <div style="width: 100%; text-align: center;">
+      <iframe data-aa='2442204' src='//acceptable.a-ads.com/2442204/?size=Adaptive' style='border:0; padding:0; width:100%; height:250px; overflow:hidden; display: block; margin: auto;'></iframe>
+    </div>
+
+  </aside> <!-- Sidebar Ends -->
+
+</div> <!-- Main Web Layout Ends -->
   <div class="sec-top reveal">
     <span class="sec-tag">✦ Shop</span>
     <h2 class="sec-title">TOP WOMEN BAGS</h2>
