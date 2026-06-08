@@ -9,11 +9,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-/* ========================================================
-   NEW SIDEBAR & CONTENT LAYOUT (ADS SIDE PAR KARNE KE LIYE)
-   ======================================================== */
+}          
+<style>
+  <style>
+/* ... aap ka baaki purana CSS code yahan pehle se hoga ... */
 
-/* Main wrapper layout ko do hisson mein taqseem karne ke liye */
+/* BILKUL AKHIR MEIN </style> SE PEHLE YEH CODES HONAY CHAHIYEN */
+
 .main-web-layout {
   display: flex;
   gap: 30px;
@@ -22,15 +24,13 @@
   padding: 0 60px;
 }
 
-/* Left side jahan products aur content show hoga */
 .left-content-area {
-  flex: 1; /* Yeh bachi hui poori jagah le lega */
+  flex: 1;
   min-width: 0;
 }
 
-/* Right side jahan ads ka column banega */
 .right-ad-sidebar {
-  width: 300px; /* Sidebar ki width fixed 300px standard size */
+  width: 300px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,6 @@
   padding-top: 40px;
 }
 
-/* Sidebar ke andar iframes ki standard control */
 .right-ad-sidebar iframe {
   width: 100% !important;
   max-width: 300px;
@@ -46,7 +45,6 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* Jab mobile screen ho to side-by-side khatam karke oopar-neeche kar dein */
 @media(max-width: 1024px) {
   .main-web-layout {
     flex-direction: column;
@@ -56,8 +54,8 @@
     width: 100%;
     align-items: center;
   }
-}          
-<style>
+}
+</style>
 :root{--bg:#ffffff;        /* white background */--bg2:#fff5f7;       /* light pink tone background */--surface:#ffffff;--border:rgba(0,0,0,0.08);--text:#000000;      /* black text */--muted:rgba(0,0,0,0.55);/* Light pink motion / highlights */--gold:#f472b6;--gold2:#f9a8d4;--rose:#f472b6;--cyan:#fbcfe8;--green:#fda4af;--card-bg:#ffffff;}
 *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
