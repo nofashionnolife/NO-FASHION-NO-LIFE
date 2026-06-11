@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="p:domain_verify" content="c013c454f523867ebbc9af2142a5d719"/>
-  <title>NO-FASHION  — NO-LIFE</title>
+  <title>NO FASHION NO LIFE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700;900&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
     
     /* Custom Cursor */
     .cur{width:8px;height:8px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;will-change:left,top;transition:width .3s,height .3s,background .3s;}
-    .cur-ring{width:36px;height:36px;border:1px solid rgba(201,168,76,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:left .08s linear,top .08s linear;}
+    .cur-ring{width:36px;height:36px;border:1px solid rgba(201,168,76,0.5);border-radius:50%;position:fixed;pointer-events:none;z-index:999998;transition:left .08s linear,top .08s linear;}
     .cur.hov{width:50px;height:50px;background:transparent;border:1px solid var(--gold);margin:-21px;}
     .cur.hov~.cur-ring{opacity:0;}
     
@@ -146,6 +146,36 @@
     .bbtn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:15px;border:none;border-radius:14px;font-family:'Unbounded',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;text-decoration:none;cursor:pointer;position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease;background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 50%,var(--gold) 100%);background-size:200% auto;color:var(--bg);box-shadow:0 6px 24px rgba(201,168,76,0.3);}
     .bbtn:hover{transform:scale(1.03);box-shadow:0 10px 35px rgba(201,168,76,0.45);background-position:right center;}
     
+    /* Product Modal / Page View styling */
+    .modal {position:fixed; inset:0; z-index:99999; background:rgba(0,0,0,0.6); backdrop-filter:blur(15px); display:none; align-items:center; justify-content:center; padding:20px; overflow-y:auto;}
+    .modal.open {display:flex;}
+    .modal-content {background:#fff; width:100%; max-width:900px; border-radius:32px; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; position:relative; box-shadow:0 25px 70px rgba(0,0,0,0.3); max-height:90vh;}
+    .close-modal {position:absolute; top:20px; right:20px; background:rgba(0,0,0,0.05); border:none; width:40px; height:40px; border-radius:50%; font-size:1.2rem; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; transition:background 0.2s;}
+    .close-modal:hover {background:rgba(0,0,0,0.1); color:var(--gold);}
+    
+    /* Modal Left: Images Area */
+    .modal-left {padding:30px; background:#fafafa; display:flex; flex-direction:column; gap:15px; justify-content:center; border-right:1px solid var(--border); overflow-y:auto;}
+    .main-img-box {width:100%; height:320px; background:#fff; border-radius:16px; display:flex; align-items:center; justify-content:center; padding:15px; box-shadow:0 8px 20px rgba(0,0,0,0.03);}
+    .main-img-box img {max-width:100%; max-height:100%; object-fit:contain;}
+    .thumb-track {display:flex; gap:8px; overflow-x:auto; padding-bottom:5px;}
+    .thumb-img {width:60px; height:60px; border:2px solid transparent; border-radius:10px; background:#fff; padding:4px; cursor:pointer; flex-shrink:0; transition:all 0.2s;}
+    .thumb-img.active {border-color:var(--gold);}
+    
+    /* Modal Right: Details & Form */
+    .modal-right {padding:40px; overflow-y:auto; max-height:90vh;}
+    .m-title {font-family:'Instrument Serif',serif; font-size:2.2rem; font-style:italic; line-height:1.2; margin-bottom:10px;}
+    .m-price {font-family:'Unbounded',sans-serif; font-size:1.4rem; color:var(--text); font-weight:700; margin-bottom:15px;}
+    .m-desc {font-size:0.85rem; color:var(--muted); line-height:1.6; margin-bottom:25px; border-bottom:1px solid var(--border); padding-bottom:20px;}
+    
+    /* Order Form */
+    .order-form {display:flex; flex-direction:column; gap:12px;}
+    .form-head {font-family:'Unbounded',sans-serif; font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:5px;}
+    .form-group {display:flex; flex-direction:column; gap:5px;}
+    .form-group input, .form-group textarea {width:100%; padding:12px 16px; border:1px solid var(--border); border-radius:12px; font-family:'DM Sans',sans-serif; font-size:0.85rem; outline:none; transition:border 0.2s;}
+    .form-group input:focus, .form-group textarea:focus {border-color:var(--gold);}
+    .submit-btn {background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#fff; border:none; padding:15px; border-radius:12px; font-family:'Unbounded',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; cursor:pointer; box-shadow:0 6px 20px rgba(244,114,182,0.25); transition:transform 0.2s;}
+    .submit-btn:hover {transform:scale(1.02);}
+
     /* Deal & UI elements */
     .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(70px);background:rgba(255,255,255,0.95);color:#000;padding:12px 26px;border-radius:50px;font-size:.78rem;font-weight:600;z-index:9999;transition:transform .35s;box-shadow:0 10px 40px rgba(0,0,0,0.15);white-space:nowrap;display:none;}
     .toast.show{display:block;transform:translateX(-50%) translateY(0);}
@@ -174,15 +204,29 @@
     .btop.show{opacity:1;}
     
     /* Responsive Media Queries */
-    @media(max-width:768px){
+    @media(max-width:768px) {
       nav{padding:14px 20px;}
       .nav-links{display:none;}
-      .sec{padding:40px 20px;}
+      .sec{padding:40px 10px;}
       .hero{padding:120px 20px 40px; min-height:auto;}
       .hero h1{font-size:40px; line-height:1.1;}
       .hero-stats{flex-direction:column;}
-      .grid{grid-template-columns:1fr; gap:18px;}
-      .cimg-wrap{height:200px;}
+      
+      /* Mobile view 3 columns */
+      .grid{grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important;}
+      .card{border-radius: 12px !important; box-shadow: 0 2px 10px rgba(0,0,0,0.15) !important;}
+      .cimg-wrap{height: 90px !important;}
+      .cname{font-size: 0.8rem !important;}
+      .cdesc, .crating, .bhint, .cstock, .cquick {display: none !important;}
+      .bbtn{padding: 6px !important; font-size: 0.55rem !important; border-radius: 6px !important;}
+      
+      /* Modal Mobile view adjustment */
+      .modal-content {grid-template-columns: 1fr; max-height: 95vh;}
+      .modal-left {padding: 15px; border-right: none; border-bottom: 1px solid var(--border);}
+      .main-img-box {height: 200px;}
+      .modal-right {padding: 20px;}
+      .m-title {font-size: 1.6rem;}
+      
       .deal-sec{padding:0 20px 40px;}
       .deal-banner{flex-direction:column; padding:28px 20px; text-align:center;}
       .deal-icon{font-size:70px;}
@@ -208,7 +252,7 @@
 <button class="btop" id="btop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <nav>
-  <a class="logo" href="#">NO-FASHION <em>NO-LIFE</em></a>
+  <a class="logo" href="#">NO FASHION <em>NO LIFE</em></a>
   <ul class="nav-links">
     <li><a href="#products">Collection</a></li>
     <li><a href="#deals">Deals</a></li>
@@ -220,7 +264,7 @@
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-kicker"><span class="kpulse"></span> Created by ASIM</div>
-    <h1><span class="h1a">No fashion</span><span class="h1b"> No life </span></h1>
+    <h1><span class="h1a">NO FASHION</span><span class="h1b"> NO LIFE </span></h1>
     <div class="hero-glass">
       <div class="hg-inner">
         <div class="hg-text">Every product <strong>personally chosen</strong> by ASIM— zero compromise on quality, style &amp; value.</div>
@@ -236,7 +280,7 @@
 
 <div class="mwrap">
   <div class="mtrack">
-    <span>Premium Fashion</span><span class="mdot">✦</span><span>Daraz Verified</span><span class="mdot">✦</span><span>Top Seller</span><span class="mdot">✦</span><span>Fast Delivery</span><span class="mdot">✦</span><span>Best Prices</span><span class="mdot">✦</span><span>Trending Now</span><span class="mdot">✦</span><span>Best Ever</span><span class="mdot">✦</span>
+    <span>Premium Choice</span><span class="mdot">✦</span><span>100% Verified</span><span class="mdot">✦</span><span>Top Seller</span><span class="mdot">✦</span><span>Fast Delivery</span><span class="mdot">✦</span><span>Best Prices</span><span class="mdot">✦</span><span>Trending Now</span><span class="mdot">✦</span><span>Best Ever</span><span class="mdot">✦</span>
   </div>
 </div>
 
@@ -250,7 +294,7 @@
       </div>
 
       <div class="search-container">
-        <input type="text" id="productSearch" class="search-input" placeholder="Search products by name or details..." oninput="handleSearch()">
+        <input type="text" id="productSearch" class="search-input" placeholder="Search products..." oninput="handleSearch()">
       </div>
 
       <div class="filters">
@@ -264,7 +308,7 @@
         <div>
           <div class="deal-kicker">✦ Exclusive Offer</div>
           <div class="deal-title">Exclusive Discount<br>For Prime Members</div>
-          <div class="deal-sub">Click on any buy button to get exclusive discount on each purchase.</div>
+          <div class="deal-sub">Click on more details button to place your exclusive discount order.</div>
         </div>
         <div class="deal-icon">🎁</div>
       </div>
@@ -273,18 +317,56 @@
   </div> 
 </div>
 
+<div class="modal" id="productModal" onclick="closeProductView(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="close-modal" onclick="closeProductView(null)">✕</button>
+    
+    <div class="modal-left">
+      <div class="main-img-box">
+        <img id="modalMainImg" src="" alt="Product Main Image">
+      </div>
+      <div class="thumb-track" id="modalThumbTrack">
+        </div>
+    </div>
+    
+    <div class="modal-right">
+      <h2 class="m-title" id="modalTitle">Product Title</h2>
+      <div class="m-price" id="modalPrice">Rs. 0</div>
+      <p class="m-desc" id="modalDesc">Product description here...</p>
+      
+      <form class="order-form" id="orderForm" action="https://formspree.io/f/maqzdrwz" method="POST">
+        <div class="form-head">📋 Place Your Order</div>
+        
+        <input type="hidden" name="Product Name" id="formProdName">
+        <input type="hidden" name="Product Price" id="formProdPrice">
+        
+        <div class="form-group">
+          <input type="text" name="Customer Name" placeholder="Your Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="Customer Email" placeholder="Your Email Address" required>
+        </div>
+        <div class="form-group">
+          <textarea name="Shipping Address" rows="3" placeholder="Full Delivery Address" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">💥 Submit Order</button>
+      </form>
+    </div>
+  </div>
+</div>
+
 <footer id="contact">
   <div>
-    <a class="flogo" href="#">NO-FASHION <em>NO-LIFE</em></a>
-    <p class="fdesc">Your trusted guide to premium fashion on Daraz. Every product personally reviewed for quality, style, and value by ASIM..</p>
+    <a class="flogo" href="#">NO FASHION <em>NO LIFE</em></a>
+    <p class="fdesc">Your trusted guide to premium products. Every item personally reviewed for quality, style, and value by ASIM.</p>
     <div class="femail"><a href="mailto:nofashionnolife1@gmail.com">📧 nofashionnolife1@gmail.com</a></div>
   </div>
   <div>
     <div class="fhead">NO FASHION NO LIFE</div>
     <ul class="flinks">
       <li><a href="#">Top Seller</a></li>
-      <li><a href="#">Premium Fashion</a></li>
-      <li><a href="#">Daraz Verified</a></li>
+      <li><a href="#">Premium Quality</a></li>
+      <li><a href="#">Verified Choice</a></li>
     </ul>
   </div>
   <div>
@@ -298,46 +380,54 @@
 </footer>
 
 <div class="fbot">
-  <p>© 2026 NO-FASHION NO-LIFE . All rights reserved.</p>
-  <div class="fdisc">Disclosure: NO FASHION NO LIFE participates in the Daraz Affiliate program. We earn from qualifying purchases at no extra cost to you.</div>
+  <p>© 2026 NO FASHION NO LIFE. All rights reserved.</p>
 </div>
 
 <script>
 // ================================================================
-//  ✅ ADD / EDIT YOUR AMAZON PRODUCTS HERE
+//  ✅ HAR PRODUCT KI 5,6 IMAGES AUR PRICE YAHAN ADD KAREIN
 // ================================================================
 const products = [
   {
+    id: 1,
     name: "Luxury Leather Handbag",
+    price: "Rs. 3,500",
     category: "",       
     badge: "hot",          
     badgeText: "🔥 Hot",
-    desc: "Premium quality crafted leather handbag designed for modern elegance and structural endurance.",
+    desc: "Premium quality crafted leather handbag designed for modern elegance and structural endurance. Perfectly spaced with double stitch design.",
     rating: "★★★★★",
     reviews: "4.9 (128 reviews)",
     stock: "in-stock",     
     stockLabel: "✓ In Stock",
-    img: "", // Add Amazon image URL here
-    emoji: "👜",
     bought: "250+ bought last month",
-    imgBg: "linear-gradient(135deg, #fbcfe8, #f9a8d4)",
-    link: "#" // Add your Amazon Affiliate link here
+    // 5-6 images array format mein yahan add karein
+    images: [
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500", // Image 1
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500", // Image 2
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500", // Image 3
+      "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=500", // Image 4
+      "https://images.unsplash.com/photo-1566150905458-1bf1fc15a630?w=500"  // Image 5
+    ]
   },
   {
+    id: 2,
     name: "Classic Shoulder Tote",
+    price: "Rs. 2,800",
     category: "",       
     badge: "new",          
     badgeText: "✨ New",
-    desc: "Spacious everyday tote bag with secure dynamic compartments and minimalist golden accents.",
+    desc: "Spacious everyday tote bag with secure dynamic compartments and minimalist golden accents. Crafted for daily comfort.",
     rating: "★★★★☆",
     reviews: "4.6 (84 reviews)",
     stock: "in-stock",     
     stockLabel: "✓ In Stock",
-    img: "", 
-    emoji: "🛍️",
     bought: "105+ bought last month",
-    imgBg: "linear-gradient(135deg, #fda4af, #f472b6)",
-    link: "#" 
+    images: [
+      "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500",
+      "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500",
+      "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500"
+    ]
   }
 ];
 
@@ -354,9 +444,8 @@ function renderProducts(list) {
     <div class="card">
       <span class="cbadge badge-${p.badge}">${p.badgeText}</span>
       <div class="cwish" onclick="toggleWish(this,event)">♡</div>
-      <div class="cimg-wrap">
-        ${p.img ? `<img src="${p.img}" alt="${p.name}" class="cimg" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : ''}
-        <div class="cimg-ph" style="background:${p.imgBg}; ${p.img ? 'display:none' : ''}">${p.emoji}</div>
+      <div class="cimg-wrap" onclick="openProductView(${p.id})">
+        <img src="${p.images[0]}" alt="${p.name}" class="cimg" loading="lazy" decoding="async">
         <div class="cquick">👁 Quick View</div>
       </div>
       <div class="cbody">
@@ -371,9 +460,9 @@ function renderProducts(list) {
           </div>
           <div class="cstock ${p.stock}">${p.stockLabel}</div>
           <div class="bhint">For more details click here.👇🏻</div>
-          <a href="${p.link}" target="_blank" rel="noopener" class="bbtn" onclick="trackClick('${p.name}')">
-            🛒 Buy on Daraz <span class="barr">→</span>
-          </a>
+          <button class="bbtn" onclick="openProductView(${p.id})">
+            🔍 More Details <span class="barr">→</span>
+          </button>
         </div>
       </div>
     </div>
@@ -409,12 +498,48 @@ function toggleWish(btn, e) {
   showToast(w ? '💔 Removed from wishlist' : '❤️ Added to wishlist!');
 }
 
-function trackClick(n) { showToast('🛒 Opening Amazon for: ' + n); }
-
 function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
   clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 2400);
+}
+
+// Modal (Product Page popup) Open Logic
+function openProductView(productId) {
+  const prod = products.find(p => p.id === productId);
+  if(!prod) return;
+  
+  document.getElementById('modalTitle').textContent = prod.name;
+  document.getElementById('modalPrice').textContent = prod.price;
+  document.getElementById('modalDesc').textContent = prod.desc;
+  
+  // Form hidden data auto insert
+  document.getElementById('formProdName').value = prod.name;
+  document.getElementById('formProdPrice').value = prod.price;
+  
+  // Set Main Image
+  const mainImg = document.getElementById('modalMainImg');
+  mainImg.src = prod.images[0];
+  
+  // Generate Thumbnails
+  const thumbTrack = document.getElementById('modalThumbTrack');
+  thumbTrack.innerHTML = prod.images.map((imgUrl, index) => `
+    <img src="${imgUrl}" class="thumb-img ${index === 0 ? 'active' : ''}" onclick="changeModalImage('${imgUrl}', this)">
+  `).join('');
+  
+  document.getElementById('productModal').classList.add('open');
+}
+
+function closeProductView(e) {
+  if(!e || e.target.classList.contains('modal')) {
+    document.getElementById('productModal').classList.remove('open');
+  }
+}
+
+function changeModalImage(imgUrl, thumbElement) {
+  document.getElementById('modalMainImg').src = imgUrl;
+  document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
+  thumbElement.classList.add('active');
 }
 
 // Custom Cursor Movements
@@ -428,7 +553,7 @@ document.addEventListener('mousemove', e => {
     raf=null;
   });
 });
-document.addEventListener('mouseover', e => cur.classList.toggle('hov', !!e.target.closest('a,button,.card,.cwish')));
+document.addEventListener('mouseover', e => cur.classList.toggle('hov', !!e.target.closest('a,button,.card,.cwish,.thumb-img')));
 
 // Generate background background particles
 const pc=document.getElementById('particles');
@@ -442,7 +567,7 @@ for(let i=0; i<8; i++){
 
 window.addEventListener('scroll',()=>document.getElementById('btop').classList.toggle('show',window.scrollY>350),{passive:true});
 
-// 24 Hour Persistent Local Storage Timer
+// 24 Hour Timer
 function startTimersForVisible() {
   const timers = document.querySelectorAll(".timer");
   timers.forEach(timer => {
